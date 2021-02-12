@@ -1,0 +1,31 @@
+public class Str {
+
+	public static void main(String[] args) 
+	{
+		String s[] = {"Z:0","Y:1","X:-4","B:3","X=5"};
+		int n[] = new int[26];
+		char m[] = new char[26];
+		int k=0,sum = 0;
+		for (int i = 0; i < s.length; i++)
+		{
+			if(s[i].charAt(0)>=65 && s[i].charAt(0)<=90)
+			{
+				k = s[i].charAt(0)-65;
+				m[k] = s[i].charAt(0);
+			}
+			if(s[i].length()==4)
+			{
+				sum = Integer.parseInt(String.valueOf(s[i].charAt(3)));
+				n[k] -=sum;
+			}
+			else
+			{
+				sum = Integer.parseInt(String.valueOf(s[i].charAt(2)));
+				n[k] +=sum;
+			}
+		}
+		for (int i = 0; i < m.length; i++)
+			if(n[i]>=1 )
+				System.out.println(m[i]+":"+n[i]);
+	}
+}      
